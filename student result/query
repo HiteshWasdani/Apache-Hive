@@ -1,0 +1,1 @@
+select s1.id, s1.name, s2.result from students s1 JOIN results s2 on (s1.id = s2.id and s2.result = 'pass');

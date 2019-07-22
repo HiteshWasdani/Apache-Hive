@@ -1,0 +1,39 @@
+
+1. Count the number of identities generated in each state.
+	select State, COUNT(Aadhaar_generated) from adhar_data group by State;
+
+
+2. Count the number of identities generated in each agencies.
+	select State, SUM(Aadhaar_generated) from adhar_data group by State;
+
+
+3. Count total number of enrollments in aadhar data set.
+	select SUM(Aadhaar_generated+Enrolment_Rejected) as total_enrolment from adhar_data;
+
+
+4. Find out total number of all  the entries in each district.     ???
+	
+
+
+5. Find out the top 10 district with maximum identities generate.
+	select District, SUM(Aadhaar_generated) as Aadhaar_generated from adhar_data group by District order by Aadhaar_generated desc limit 10;
+
+
+6. Find out the total number of cards rejected by States.
+	select State, SUM(Enrolment_Rejected) from adhar_data group by State;
+
+
+7. Find out the total number of email by states and store it.
+	select COUNT(*) from adhar_data;
+
+
+8. Find out the total number of Aadhaar applicants by gender type.
+	select Gender, SUM(Aadhaar_generated+Enrolment_Rejected) as total_enrolment group by Gender from adhar_data;
+
+
+9. Find out the total number of Aadhaar applicants by age type.
+	select Age, SUM(Aadhaar_generated+Enrolment_Rejected) as total_enrolment group by Age from adhar_data;
+
+
+10. Find out the number of members who have the age more than 100 years.
+	select SUM(Aadhaar_generated) from adhar_data where Age>100;

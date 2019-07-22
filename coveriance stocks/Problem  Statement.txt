@@ -1,0 +1,4 @@
+1. Problem Statement
+Use HiveQL to analyse the stock exchange dataset and calculate the
+covariance between the stocks for each month. This will help a stock
+broker in recommending the stocks to his customers. 

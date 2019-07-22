@@ -1,0 +1,9 @@
+select s1.stksymbol,
+	s2.stksymbol,
+	YEAR(s1.date1),
+	((AVG(s1.open*s2.open))-(AVG(s1.open)*AVG(s2.open)))
+	from stocks4 s1 JOIN stocks4 s2 on
+	s1.stksymbol != s2.stksymbol
+	and s1.date1 = s2.date1 group by
+	s1.stksymbol, s2.stksymbol, YEAR(s1.date1);
+

@@ -1,0 +1,20 @@
+1. Get row count of  ‘pokemon’
+	select count(*) from pokemon_data;
+	
+2. Get the total number of pokemons of each type1 ------- 
+	select type1, COUNT(name) from pokemon_data group by type1;
+	
+3. Find out the average HP(Hit Points) of all the pokemons.	
+	select avg(hp) from pokemon_data;
+	
+4. Create and insert values of existing table ‘pokemon’ into a new table ‘pokemon1’ with an additional column ‘power_rate’ to find the count of ‘powerful’ and ‘moderate’ from the table ‘pokemon’.
+	create table pokemon_data2 as select * , if(hp>69, 'Powerful', 	if(hp<69, 'moderate','')) as powerrate from pokemon_data;						
+
+5. Now we will find out the number of powerful and moderate HP Pokemon.
+	select powerrate, COUNT(name) from pokemon_data2 group by powerrate;
+
+6. Find out the top 10 Pokemons according to their HP’s 
+	select * from pokemon_data order by hp desc limit 10;
+	
+7. Find out the top 10 Pokemons having a drastic change in their attack and sp.attack.							
+	select name from pokemon_data where spatk-attack =(select MAX(spatk - attack) from pokemon_data);
